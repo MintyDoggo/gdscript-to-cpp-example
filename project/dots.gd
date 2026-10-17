@@ -1,5 +1,5 @@
 class_name Dots
-extends RefCounted
+extends DotsNative1
 
 const DOT_COUNT := 20000
 const FRICTION := 0.5
@@ -31,6 +31,7 @@ func repel_dots(delta: float, repeller: Repeller) -> void:
 	for dot in dots:
 		var offset := dot.position - repeller.position
 		var strength := repeller.strength * maxf(1.0 - offset.length() / repeller.radius, 0.0)
+
 		dot.velocity += offset.normalized() * strength * delta
 		dot.velocity *= damping
 

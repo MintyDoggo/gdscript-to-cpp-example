@@ -6,6 +6,7 @@
 #include <godot_cpp/godot.hpp>
 
 #include "example_class.h"
+#include "example_1/dots_native_1.h"
 
 using namespace godot;
 
@@ -15,6 +16,7 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level)
 		return;
 	}
 	GDREGISTER_CLASS(ExampleClass);
+	GDREGISTER_CLASS(DotsNative1);
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {

@@ -1,5 +1,7 @@
 extends Node2D
 
+const USE_NATIVE := true
+
 var player := Player.new()
 var dots := Dots.new()
 
@@ -16,5 +18,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	player.update_movement(delta)
 	player.repeller.position = player.position
-	dots.repel_dots(delta, player.repeller)
+	if USE_NATIVE:
+		dots.repel_dots_native(delta, player.repeller)
+	else:
+		dots.repel_dots(delta, player.repeller)
 	dots.update_visuals()
