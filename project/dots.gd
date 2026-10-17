@@ -1,5 +1,5 @@
 class_name Dots
-extends DotsNative1
+extends DotsNative2
 
 const DOT_COUNT := 20000
 const FRICTION := 0.5
