@@ -8,6 +8,7 @@
 #include "example_class.h"
 #include "example_1/dots_native_1.h"
 #include "example_2/dots_native_2.h"
+#include "example_3/dots_native_3.h"
 
 using namespace godot;
 
@@ -19,6 +20,7 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level)
 	GDREGISTER_CLASS(ExampleClass);
 	GDREGISTER_CLASS(DotsNative1);
 	GDREGISTER_CLASS(DotsNative2);
+	GDREGISTER_CLASS(DotsNative3);
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {

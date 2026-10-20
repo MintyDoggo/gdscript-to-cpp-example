@@ -1,7 +1,7 @@
 class_name Dots
-extends DotsNative2
+extends DotsNative3
 
-const DOT_COUNT := 20000
+const DOT_COUNT := 25000
 const FRICTION := 0.5
 
 var dots: Array[Dot] = []
