@@ -25,9 +25,10 @@ void DotsNative2::repel_dots_native(double delta, Object *repeller) {
 	static const StringName strength_name("strength");
 	static const StringName velocity_name("velocity");
 
-	Variant self = this;
-	Variant repeller_object = repeller;
-	bool valid = false;
+	Variant self = this; // convert `Object` to `Variant`
+	Variant repeller_variant = repeller; // convert `Object` to `Variant`
+
+	bool valid = false; // pass by refernce to check validity
 
 	const Variant friction_value = self.get_named(friction_name, valid);
 	ERR_FAIL_COND(!valid);
@@ -41,17 +42,17 @@ void DotsNative2::repel_dots_native(double delta, Object *repeller) {
 	ERR_FAIL_COND(dots_value.get_type() != Variant::ARRAY);
 	const Array dots = dots_value;
 
-	const Variant position_value = repeller_object.get_named(position_name, valid);
+	const Variant position_value = repeller_variant.get_named(position_name, valid);
 	ERR_FAIL_COND(!valid);
 	ERR_FAIL_COND(position_value.get_type() != Variant::VECTOR2);
 	const Vector2 repeller_position = position_value;
 
-	const Variant radius_value = repeller_object.get_named(radius_name, valid);
+	const Variant radius_value = repeller_variant.get_named(radius_name, valid);
 	ERR_FAIL_COND(!valid);
 	ERR_FAIL_COND(radius_value.get_type() != Variant::FLOAT);
 	const double repeller_radius = radius_value;
 
-	const Variant strength_value = repeller_object.get_named(strength_name, valid);
+	const Variant strength_value = repeller_variant.get_named(strength_name, valid);
 	ERR_FAIL_COND(!valid);
 	ERR_FAIL_COND(strength_value.get_type() != Variant::FLOAT);
 	const double repeller_strength = strength_value;
