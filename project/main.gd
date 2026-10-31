@@ -17,7 +17,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	player.update_movement(delta)
-	player.repeller.position = player.position
 	if USE_NATIVE:
 		dots.repel_dots_native(delta, player.repeller)
 	else:

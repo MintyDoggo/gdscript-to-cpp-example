@@ -25,3 +25,4 @@ func update_movement(delta: float) -> void:
 	velocity = velocity.move_toward(Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") * MAX_SPEED, ACCELERATION * delta)
 	position += velocity * delta
 	visual.position = position
+	repeller.position = position
